@@ -5,7 +5,12 @@ const uri = "mongodb+srv://kasarschetan1122:D7Ybtd5WfHapo4tV@cluster2.3fczggr.mo
 const client = new MongoClient(uri);
 const app = express();
 const cors = require('cors');
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://finalfk-frontend.vercel.app"],
+    methods: ["POST", "GET"],
+  }
+));
 app.use(bodyParser.json());
 
 app.use("/",(req,res)=>{
