@@ -8,10 +8,6 @@ const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/",(req, res)=>{
-  console.log("Done");
-});
-
 app.post('/add', async (req, res) => {
 
   const database = client.db("mydb3");
@@ -21,5 +17,5 @@ app.post('/add', async (req, res) => {
 
 const PORT = 9000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log("Server running on");
 });
