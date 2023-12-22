@@ -8,6 +8,10 @@ const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use("/",(req, res)=>{
+  
+});
+
 app.post('/add', async (req, res) => {
 
   const database = client.db("mydb3");
