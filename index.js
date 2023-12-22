@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/",(req, res)=>{
-  
+  console.log("Done");
 });
 
 app.post('/add', async (req, res) => {
