@@ -19,6 +19,7 @@ app.use("/",(req,res)=>{
 
 app.post('/add', async (req, res) => {
 
+  console.log("Yess data received");
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection");
   const result = await mycollection.insertOne(req.body.userData);
