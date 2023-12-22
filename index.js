@@ -1,31 +1,21 @@
-const express = require("express");
+const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://kasarschetan1122:Yhcs4f5RBWwKqmU2@cluster13.x1rw8bv.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://kasarschetan1122:D7Ybtd5WfHapo4tV@cluster2.3fczggr.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
-const cors = require('cors');
 const app = express();
-
-app.use(bodyParser.json());
+const cors = require('cors');
 app.use(cors());
+app.use(bodyParser.json());
 
 app.post('/add', async (req, res) => {
 
-    const database = client.db("mydb2");
-    const mycollection = database.collection("mycollection");
-    const result = await mycollection.insertOne(req.body.userData);
-    console.log(req.body.userData);
-
-    // console.log(global.imageName);
-
-    //res.json({ message: 'Data received on the server' });
+  const database = client.db("mydb3");
+  const mycollection = database.collection("mycollection");
+  const result = await mycollection.insertOne(req.body.userData);
 });
 
-
-app.use("/",(req, res)=>{
-  res.json({message:"Hello"});
+const PORT = 9000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-app.listen(9000, () => {
-    console.log(`Server running`);
-  });
