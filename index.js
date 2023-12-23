@@ -14,10 +14,10 @@ app.use("/home",(req,res)=>{
 });
 
 app.post("/add",async(req, res) => {
-  res.send("add is working");
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection");
   const result = await mycollection.insertOne(req.body.userData);
+  res.send("add is working");
 });
 
 const PORT = 9000;
