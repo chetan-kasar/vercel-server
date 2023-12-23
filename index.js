@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-  origin: "https://finalfk.vercel.app",
+  origin: "*",
   methods: ['GET','POST'],
   credentials: true 
 }));
