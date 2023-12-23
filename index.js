@@ -14,13 +14,11 @@ app.use(cors(
 app.use(bodyParser.json());
 
 app.use("/",(req,res)=>{
-  console.log("In root ");
   res.json({message:"hiii"});
 });
 
 app.post('/add', async (req, res) => {
-
-  console.log("Yess data received");
+  res.json({message:"In add"});
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection");
   const result = await mycollection.insertOne(req.body.userData);
