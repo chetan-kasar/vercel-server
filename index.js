@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: ['https://finalfk-frontend.vercel.app'],
+  origin: [https://finalfk.vercel.app'],
   methods: ['GET','POST'],
   credentials: true 
 }));
