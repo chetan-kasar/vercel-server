@@ -14,9 +14,13 @@ app.use(cors({
   credentials: true 
 }));
 
-app.use("/home",(req,res)=>{
-  res.send("Home is working");
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
 });
+
 
 app.post('/add', async (req, res) => {
   const database = client.db("mydb3");
