@@ -20,9 +20,9 @@ app.use("/home",(req,res)=>{
 
 app.use("/add",async(req, res) => {
   
-  // const database = client.db("mydb3");
-  // const mycollection = database.collection("mycollection");
-  // const result = await mycollection.insertOne({name:"Hitman"});
+   const database = client.db("mydb3");
+   const mycollection = database.collection("mycollection");
+   const result = await mycollection.insertOne({name:"Hitman"});
   res.send("add is working");
 });
 
