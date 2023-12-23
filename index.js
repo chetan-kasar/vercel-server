@@ -20,14 +20,32 @@ app.use("/home",(req,res)=>{
 
 app.use("/add",async(req, res) => {
   try {
-    const database = client.db("mydb3");
-    const mycollection = database.collection("mycollection");
-    const result = await mycollection.insertOne({ name: "Hitman" });
-    res.send("add is working");
-  } catch (err) {
-    console.error("Error inserting data:", err);
-    res.status(500).send("Error adding data");
-  }
+        // Connect to the Atlas cluster
+         await client.connect();
+         const db = client.db(dbName);
+         // Reference the "people" collection in the specified database
+         const col = db.collection("people");
+         // Create a new document                                                                                                                                           
+         let personDocument = {
+             "name": { "first": "Alan", "last": "Turing" },
+             "birth": new Date(1912, 5, 23), // May 23, 1912                                                                                                                                 
+             "death": new Date(1954, 5, 7),  // May 7, 1954                                                                                                                                  
+             "contribs": [ "Turing machine", "Turing test", "Turingery" ],
+             "views": 1250000
+         }
+         // Insert the document into the specified collection        
+         const p = await col.insertOne(personDocument);
+         // Find and return the document
+         const filter = { "name.last": "Turing" };
+         const document = await col.findOne(filter);
+         console.log("Document found:\n" + JSON.stringify(document));
+        } catch (err) {
+         console.log(err.stack);
+     }
+ 
+     finally {
+        await client.close();
+    }
 });
 
 const PORT = 9000;
