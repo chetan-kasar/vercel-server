@@ -20,7 +20,7 @@ app.use("/home",(req,res)=>{
 app.post('/add', async (req, res) => {
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection2");
-  const result = await mycollection.insertOne({name:"Hitman"});
+  const result = await mycollection.insertOne(req.body.usernane);
   res.send("add is working");
 });
 
