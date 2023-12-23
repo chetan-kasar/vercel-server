@@ -12,7 +12,7 @@ app.use("/",(req,res)=>{
   res.json({message:"hiii"});
 });
 
-app.post('/add', async (req, res) => {
+app.post("/add", async (req, res) => {
   res.json({message:"received"});
   //const database = client.db("mydb3");
   //const mycollection = database.collection("mycollection");
