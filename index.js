@@ -7,6 +7,12 @@ const app = express();
 const cors = require('cors');
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://finalfk.vercel.app');
+    // Other CORS headers can be set here if needed
+    next();
+});
+
 app.use(cors({
   origin: "https://finalfk.vercel.app",
   methods: ['GET','POST'],
