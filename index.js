@@ -12,12 +12,8 @@ app.use("/home",(req,res)=>{
   res.send("Home is working");
 });
 
-app.use("/",(req,res)=>{
-  res.json({message:"babli"});
-});
-
 app.post("/add",(req, res) => {
-  res.json({message:"received"});
+  res.send("add is working");
   //const database = client.db("mydb3");
   //const mycollection = database.collection("mycollection");
   //const result = await mycollection.insertOne(req.body.userData);
