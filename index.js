@@ -5,12 +5,7 @@ const bodyParser = require('body-parser');
 //const client = new MongoClient(uri);
 const app = express();
 const cors = require('cors');
-app.use(cors(
-  {
-    origin:["https://finalfk-frontend.vercel.app"],
-    methods: ["POST", "GET"],
-  }
-));
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/",(req,res)=>{
