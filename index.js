@@ -12,7 +12,7 @@ app.use("/home",(req,res)=>{
   res.send("Home is working");
 });
 
-app.post("/add",(req, res) => {
+app.post("/add",async(req, res) => {
   res.send("add is working");
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection");
