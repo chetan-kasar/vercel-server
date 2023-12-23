@@ -8,10 +8,9 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "*");
-    res.header("Access-Control-Allow-Headers", "*");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 app.use(bodyParser.json());
@@ -19,7 +18,7 @@ app.use(bodyParser.json());
 app.post('/add', async (req, res) => {
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection2");
-  const result = await mycollection.insertOne(req.body.usernane);
+  const result = await mycollection.insertOne(req.body.userData);
   res.send("add is working");
 });
 
