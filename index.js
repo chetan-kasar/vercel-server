@@ -8,12 +8,12 @@ const cors = require('cors');
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/",(req,res)=>{
-  res.json({message:"babli"});
-});
-
 app.use("/home",(req,res)=>{
   res.send("Home is working");
+});
+
+app.use("/",(req,res)=>{
+  res.json({message:"babli"});
 });
 
 app.post("/add",(req, res) => {
