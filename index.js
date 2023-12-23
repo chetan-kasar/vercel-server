@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://finalfk.vercel.app');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     // Other CORS headers can be set here if needed
     next();
 });
