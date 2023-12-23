@@ -22,7 +22,7 @@ app.use('/add', async (req, res) => {
   const uri = "mongodb+srv://kasarschetan1122:yuv3XpgeovmKFRFU@cluster07.ma9cvqv.mongodb.net/?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
   const database = client.db("mydb3");
-  const mycollection = database.collection("mycollection");
+  const mycollection = database.collection("mycollection2");
   const result = await mycollection.insertOne({name:"Hitman"});
 });
 
