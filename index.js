@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://kasarschetan1122:yuv3XpgeovmKFRFU@cluster07.ma9cvqv.mongodb.net/?retryWrites=true&w=majority";
+const uri = mongodb+srv://kasarschetan1122:CUhAtAZZCzo4eg7g@cluster0.6xbessh.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 const app = express();
 const cors = require('cors');
@@ -18,12 +18,10 @@ app.use("/home",(req,res)=>{
 });
 
 app.use('/add', async (req, res) => {
-  console.log("add is working");
-  const uri = "mongodb+srv://kasarschetan1122:yuv3XpgeovmKFRFU@cluster07.ma9cvqv.mongodb.net/?retryWrites=true&w=majority";
-  const client = new MongoClient(uri);
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection2");
   const result = await mycollection.insertOne({name:"Hitman"});
+  res.send("add is working");
 });
 
 const PORT = 9000;
