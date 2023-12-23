@@ -7,18 +7,11 @@ const app = express();
 const cors = require('cors');
 app.use(bodyParser.json());
 
-app.use(cors({
-  origin: "*",
-  methods: ['GET','POST'],
-  credentials: true 
-}));
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+router.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});
+  });
 
 app.post('/add', async (req, res) => {
   const database = client.db("mydb3");
