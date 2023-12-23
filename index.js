@@ -14,6 +14,7 @@ app.use(cors(
 app.use(bodyParser.json());
 
 app.use("/",(req,res)=>{
+  console.log("In root ");
   res.json({message:"hiii"});
 });
 
