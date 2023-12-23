@@ -13,7 +13,7 @@ app.use("/",(req,res)=>{
 });
 
 app.post('/add', async (req, res) => {
-  res.send("received");
+  res.json({message:"received"});
   //const database = client.db("mydb3");
   //const mycollection = database.collection("mycollection");
   //const result = await mycollection.insertOne(req.body.userData);
