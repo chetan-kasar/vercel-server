@@ -9,9 +9,9 @@ const cors = require('cors');
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: 'https://finalfk-frontend.vercel.app', // Replace with your client's URL
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true // Passes the CORS preflight response to the browser
+  origin: ['https://finalfk-frontend.vercel.app'],
+  methods: ['GET','POST'],
+  credentials: true 
 }));
 
 app.use("/home",(req,res)=>{
