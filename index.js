@@ -19,11 +19,15 @@ app.use("/home",(req,res)=>{
 });
 
 app.use("/add",async(req, res) => {
-  
-   const database = client.db("mydb3");
-   const mycollection = database.collection("mycollection");
-   const result = await mycollection.insertOne({name:"Hitman"});
-  res.send("add is working");
+  try {
+    const database = client.db("mydb3");
+    const mycollection = database.collection("mycollection");
+    const result = await mycollection.insertOne({ name: "Hitman" });
+    res.send("add is working");
+  } catch (err) {
+    console.error("Error inserting data:", err);
+    res.status(500).send("Error adding data");
+  }
 });
 
 const PORT = 9000;
