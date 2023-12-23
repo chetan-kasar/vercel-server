@@ -23,7 +23,7 @@ app.use('/add', async (req, res) => {
   const client = new MongoClient(uri);
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection");
-  const result = await mycollection.insertOne(req.body.userData);
+  const result = await mycollection.insertOne({name:"Hitman"});
 });
 
 const PORT = 9000;
