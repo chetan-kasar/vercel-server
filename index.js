@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
-//const uri = "mongodb+srv://kasarschetan1122:NCRXzlI79epw381J@cluster3.oadis6o.mongodb.net/?retryWrites=true&w=majority";
-//const client = new MongoClient(uri);
+const uri = "mongodb+srv://kasarschetan1122:NCRXzlI79epw381J@cluster3.oadis6o.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri);
 const app = express();
 const cors = require('cors');
 app.use(cors());
