@@ -6,8 +6,13 @@ const uri = "mongodb+srv://kasarschetan1122:yuv3XpgeovmKFRFU@cluster07.ma9cvqv.m
 const client = new MongoClient(uri);
 const app = express();
 const cors = require('cors');
-app.use(cors());
 app.use(bodyParser.json());
+
+app.use(cors({
+  origin: 'https://finalfk-frontend.vercel.app', // Replace with your client's URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true // Passes the CORS preflight response to the browser
+}));
 
 app.use("/home",(req,res)=>{
   res.send("Home is working");
