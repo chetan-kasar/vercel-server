@@ -12,6 +12,10 @@ app.use("/",(req,res)=>{
   res.json({message:"babli"});
 });
 
+app.use("/home",(req,res)=>{
+  res.send("Home is working");
+});
+
 app.post("/add",(req, res) => {
   res.json({message:"received"});
   //const database = client.db("mydb3");
