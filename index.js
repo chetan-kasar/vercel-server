@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 
 app.use(cors({
-  origin: ['https://finalfk.vercel.app'],
+  origin: "*",
   methods: ['GET','POST'],
   credentials: true 
 }));
@@ -17,7 +17,7 @@ app.use("/home",(req,res)=>{
   res.send("Home is working");
 });
 
-app.use('/add', async (req, res) => {
+app.post('/add', async (req, res) => {
   const database = client.db("mydb3");
   const mycollection = database.collection("mycollection2");
   const result = await mycollection.insertOne({name:"Hitman"});
