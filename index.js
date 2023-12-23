@@ -6,12 +6,7 @@ const client = new MongoClient(uri);
 const app = express();
 const cors = require('cors');
 app.use(bodyParser.json());
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Other CORS headers can be set here if needed
-    next();
-});
+Access-Control-Allow-Origin: http://localhost:3000;
 
 app.use(cors({
   origin: "*",
