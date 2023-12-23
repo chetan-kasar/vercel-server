@@ -20,6 +20,9 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/", (req, res) => {
+    res.send("Home is working");
+});
 
 app.post('/add', async (req, res) => {
   const database = client.db("mydb3");
